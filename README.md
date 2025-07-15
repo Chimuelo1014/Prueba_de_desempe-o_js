@@ -28,7 +28,7 @@ SPA Router manual
 🚀 Cómo ejecutar el proyecto
 Clonar el repositorio
 ```bash
-git clone 
+git clone https://github.com/Chimuelo1014/Prueba_de_desempe-o_js.git
 cd eventos-app
 Instalar json-server (si no lo tienes)
 npm install -g json-server
