@@ -2,7 +2,7 @@ import { renderLogin } from "./views/login.js";
 import { renderRegister } from "./views/register.js";
 import { renderDashboard } from "./views/admin/dashboard.js";
 import { renderHome } from "./views/home.js";
-import { renderEnrollment} from "./views/enrollments.js";
+import { renderEnrollments } from "./views/enrollments.js";
 import { render404} from "./views/not-found.js";
 
 const router = {
@@ -10,7 +10,7 @@ const router = {
     "/register" : renderRegister,
     "/dashboard" : renderDashboard,
     "/home" : renderHome,
-    "/enrrollments" : renderEnrollment,
+    "/enrrollments" : renderEnrollments,
     "/notFound" : render404
 };
 
