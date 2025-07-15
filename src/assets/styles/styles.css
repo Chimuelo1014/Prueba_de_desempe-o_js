@@ -1,0 +1,12 @@
+.celda-titulo,
+.celda-contenido {
+    max-height: 100px;
+    max-width: 300px;
+    overflow: auto;
+    white-space: normal;
+    word-break: break-word;
+}
+.containerAvatar{
+    margin-top: 50px;
+}
+

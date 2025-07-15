@@ -22,7 +22,7 @@ export function initRouter() {
     const main = document.getElementById("contentMain"); 
     const vista = router[path];
 
-    const usuario = localStorage.getItem("usuario");
+    const usuario = localStorage.getItem("user");
 
     // Si la ruta es privada y no hay sesión
     if (rutasPrivadas.includes(path) && !usuario) {

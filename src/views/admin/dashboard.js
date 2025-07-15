@@ -1,10 +1,15 @@
-
+import { obtenerUsuario } from "../../utils/auth.js"
 import { cerrarSesion } from "../../utils/auth.js";
 export async function renderDashboard(main) {
+    const userAvatar = obtenerUsuario();
     main.innerHTML = `
     <main>
         <div class="sidebar">
             <h4 class="text-center">Events</h4>
+            <div class="d-flex align-items-center gap-3 containerAvatar">
+                <img id="userProfilePic" class="rounded-circle imagenAvatar" width="100" height="100"" src="https://i.pravatar.cc/150?img=5" alt="avatar">
+                <h2>${userAvatar.name}</h2>
+            </div>
             <hr class="text-light">
             <a href="#/dashboard" class="eventsBoton"><i class="bi bi-mortarboard "></i> Events</a>
             <!-- Esto es un simple enlace. No "cierra sesión" realmente sin JS -->
@@ -12,9 +17,11 @@ export async function renderDashboard(main) {
         </div>
 
         <div class="content">
-            <button type="button" class="btn btn-success botonAgreagardash" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        agregar
-        </button>
+            <div class="d-flex justify-content-end mb-3">
+                <button type="button" class="btn btn-success botonAgreagardash" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Agregar
+                </button>
+            </div>
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -74,15 +81,16 @@ export async function renderDashboard(main) {
     </main>
 
     `;
-    
+    const randomId = Math.floor(Math.random() * 70) + 1;
+    document.getElementById("userProfilePic").src = `https://i.pravatar.cc/150?img=${randomId}`;
     const url = "http://localhost:3000/events"
     const celda = document.getElementById('celda');
     const res = await fetch(`${url}`)
     const data = await res.json();
     data.forEach(event => {
         celda.innerHTML += `<tr>
-          <td>${event.tittle}</td>
-          <td>${event.contenido}</td>
+          <td class="celda-titulo">${event.tittle}</td>
+          <td class="celda-titulo">${event.contenido}</td>
           <td>${event.capacidad}</td>
           <td>${event.fecha}</td>
           <td>
@@ -167,6 +175,10 @@ export async function renderDashboard(main) {
         if (!inputName.trim() || !inputContenido.trim() || !inputCapacidad.trim() || !inputFecha.trim() || !inputImagen.trim()) {
             alert("Campos vacíos");
             return;
+        }
+        if (inputCapacidad <= 0) {
+            alert("La capacidad debe ser mayor a cero");
+            return;           
         }
 
 

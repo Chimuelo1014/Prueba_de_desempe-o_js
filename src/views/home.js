@@ -1,9 +1,15 @@
+import { obtenerUsuario } from "../utils/auth.js";
 
 export async function renderHome(main) {
+    const userAvatar1 = obtenerUsuario();
     main.innerHTML = `
     <main>
         <div class="sidebar">
             <h4 class="text-center">Events</h4>
+            <div class="d-flex align-items-center gap-3 containerAvatar">
+                <img id="userProfilePic" class="rounded-circle imagenAvatar" width="100" height="100"" src="https://i.pravatar.cc/150?img=5" alt="avatar">
+                <h2>${userAvatar1.name}</h2>
+            </div>
             <hr class="text-light">
             <a href="#/enrollments" class="eventsBoton"><i class="bi bi-bookmark-fill"></i></i> Enrollments</a>
             <a href="#/home" class="eventsBoton"><i class="bi bi-mortarboard "></i> Events</a>
@@ -32,6 +38,9 @@ export async function renderHome(main) {
     </main>
 
     `;
+    const randomId = Math.floor(Math.random() * 70) + 1;
+    document.getElementById("userProfilePic").src = `https://i.pravatar.cc/150?img=${randomId}`;
+
     const url = "http://localhost:3000/events"
     const url_registrados = "http://localhost:3000/registrados"
     const celda = document.getElementById('celda');
@@ -40,8 +49,8 @@ export async function renderHome(main) {
     data.forEach(event => {
         contador(event.id,event.capacidad);
         celda.innerHTML += `<tr>
-          <td>${event.tittle}</td>
-          <td>${event.contenido}</td>
+          <td class="celda-titulo">${event.tittle}</td>
+          <td class="celda-contenido">${event.contenido}</td>
           <td>${event.capacidad}</td>
           <td>${event.fecha}</td>
           <td>
@@ -67,8 +76,11 @@ export async function renderHome(main) {
         const data = await res.json();
         const counter = data.length;
         const botonEnroll = document.getElementById(`enroll${id}`);
-        if (counter === Number(capacidad)) {
-            botonEnroll.style.backgroundColor = "grey";
+        if (counter === Number(capacidad) || Number(capacidad) === 0) {
+            botonEnroll.style.setProperty("background-color", "grey", "important");
+            botonEnroll.style.setProperty("cursor", "not-allowed", "important");
+            botonEnroll.disabled = true;
+            botonEnroll.textContent = "Sold Out ";
         }
         
     }

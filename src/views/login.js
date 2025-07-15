@@ -1,7 +1,7 @@
 import { guardarUsuario } from "../utils/auth.js";
 
 export function renderLogin(main) {
-    main.innerHTML = `
+  main.innerHTML = `
         <nav class="navbar navbar-expand-lg bg-white border-bottom">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Events</a>
@@ -36,41 +36,52 @@ export function renderLogin(main) {
   `;
 
 
-    const form = document.getElementById("loginForm");
-    const mensaje = document.getElementById("mensaje");
+  const form = document.getElementById("loginForm");
+  const mensaje = document.getElementById("mensaje");
 
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-        const input = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value;
+    const input = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
-        if (!input || !password) {
-            mensaje.innerHTML = `<div class="alert alert-warning">Completa todos los campos.</div>`;
-            return;
-        }
+    if (!input || !password) {
+      mensaje.innerHTML = `<div class="alert alert-warning">Completa todos los campos.</div>`;
+      return;
+    }
 
-        try {
-            const url = "http://localhost:3000/users";
-            const res = await fetch(`${url}?q=${input}`);
-            const datos = await res.json();
+    try {
+      const url = "http://localhost:3000/users";
+      const res = await fetch(`${url}?q=${input}`);
+      const datos = await res.json();
 
 
-            const user = datos.find(
-                u => (u.email === input) && u.password === password);
+      const user = datos.find(
+        u => (u.email === input) && u.password === password);
 
-            if (!user) {
-                mensaje.innerHTML = `<div class="alert alert-danger">Credenciales incorrectas</div>`;
-                return;
-            }
-            setTimeout(() => {
-                guardarUsuario(user);
-            }, 1000);
+      if (!user) {
+        mensaje.innerHTML = `<div class="alert alert-danger">Credenciales incorrectas</div>`;
+        return;
+      }
+      setTimeout(() => {
+        guardarUsuario(user);
+      }, 1000);
 
-              user.role === "admin" ? location.hash = "#/dashboard" : location.hash = "#/home";
 
-            gitTML = `<div class="alert alert-danger">Error al conectar con el servidor</div>`;
-        }
-    });
+
+
+
+      
+      user.role === "admin" ? location.hash = "#/dashboard" : location.hash = "#/home";
+
+
+
+
+
+      
+    } catch (err) {
+      mensaje.innerHTML = `<div class="alert alert-danger">Error al conectar con el servidor</div>`;
+  }
+});
 }
 

@@ -55,59 +55,77 @@
       "email": "dadadd@adadad",
       "password": "123",
       "role": "comun"
+    },
+    {
+      "id": "1a09",
+      "name": "santiago",
+      "lastName": "fomez",
+      "email": "admin@crudzocial.com1",
+      "password": "12345",
+      "role": "comun"
     }
   ],
   "events": [
     {
-      "id": "bb91",
-      "tittle": "tal",
-      "contenido": "estetadadd",
-      "capacidad": "123",
+      "id": "a8b5",
+      "tittle": "eventi",
+      "contenido": "aaaaaaaaaaaaaa",
+      "capacidad": "3",
       "fecha": "2025-07-06",
       "imagen": "https://media.istockphoto.com/id/1732963074/es/foto/cielo-nocturno-estrellado-en-el-espacio.jpg?s=612x612&w=0&k=20&c=e4BowuietzqEMGIAoh23WfXeX49nLg_flLOTr1P7m1E="
     },
     {
-      "tittle": "eventico",
-      "contenido": "adaddadaddad",
-      "capacidad": "7",
-      "fecha": "2025-08-08",
-      "imagen": "data:image/jpeg;base64,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",
-      "id": "6434"
+      "id": "b151",
+      "tittle": "adadadadadadadadd",
+      "contenido": "estetadadd",
+      "capacidad": "2",
+      "fecha": "2025-07-12",
+      "imagen": "https://media.istockphoto.com/id/1732963074/es/foto/cielo-nocturno-estrellado-en-el-espacio.jpg?s=612x612&w=0&k=20&c=e4BowuietzqEMGIAoh23WfXeX49nLg_flLOTr1P7m1E="
     },
     {
-      "id": "0f52",
-      "tittle": "otro evento",
-      "contenido": "con este contenido",
-      "capacidad": "45",
-      "fecha": "2050-02-20",
-      "imagen": "data:image/jpeg;base64,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"
+      "id": "dc53",
+      "tittle": "adadad",
+      "contenido": "adaddad",
+      "capacidad": "1",
+      "fecha": "2025-07-06",
+      "imagen": "https://media.istockphoto.com/id/1732963074/es/foto/cielo-nocturno-estrellado-en-el-espacio.jpg?s=612x612&w=0&k=20&c=e4BowuietzqEMGIAoh23WfXeX49nLg_flLOTr1P7m1E="
     }
   ],
   "registrados": [
     {
       "userId": "4a0e",
-      "eventId": "bb91",
+      "eventId": null,
       "id": "5b4e"
     },
     {
       "id": "db17",
       "userId": "1",
-      "eventId": "bb91"
+      "eventId": null
     },
     {
       "id": "d79e",
       "userId": "0ff7",
-      "eventId": "bb91"
+      "eventId": null
     },
     {
       "id": "05f1",
       "userId": "0ff7",
-      "eventId": "6434"
+      "eventId": null
     },
     {
       "id": "43e5",
       "userId": "0ff7",
-      "eventId": "0f52"
+      "eventId": null
+    },
+    {
+      "id": "71df",
+      "userId": "0ff7",
+      "eventId": null
+    },
+    {
+      "id": "e037",
+      "userId": "0ff7",
+      "eventId": null
     }
   ]
 }
