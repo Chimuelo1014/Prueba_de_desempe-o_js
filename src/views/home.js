@@ -38,6 +38,7 @@ export async function renderHome(main) {
     const res = await fetch(`${url}`)
     const data = await res.json();
     data.forEach(event => {
+        contador(event.id,event.capacidad);
         celda.innerHTML += `<tr>
           <td>${event.tittle}</td>
           <td>${event.contenido}</td>
@@ -61,8 +62,23 @@ export async function renderHome(main) {
 
 
     });
+    async function contador(id,capacidad) {
+        const res = await fetch(`${url_registrados}?eventId=${id}`);
+        const data = await res.json();
+        const counter = data.length;
+        const botonEnroll = document.getElementById(`enroll${id}`);
+        if (counter === Number(capacidad)) {
+            botonEnroll.style.backgroundColor = "grey";
+        }
+        
+    }
+
+
     async function agregar(id) {
-        const user =  await JSON.parse(localStorage.getItem("user"))
+        localStorage.getItem("user")
+        const user = JSON.parse(localStorage.getItem("user"))
+        console.log(user);
+        
         const eventId = id;
         
         

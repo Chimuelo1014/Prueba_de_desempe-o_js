@@ -10,7 +10,7 @@ const router = {
     "/register" : renderRegister,
     "/dashboard" : renderDashboard,
     "/home" : renderHome,
-    "/enrrollments" : renderEnrollments,
+    "/enrollments" : renderEnrollments,
     "/notFound" : render404
 };
 

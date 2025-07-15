@@ -65,13 +65,11 @@ export function renderLogin(main) {
             }
             setTimeout(() => {
                 guardarUsuario(user);
-            }, 2000);
-            user.role === "admin" ? location.hash = "#/dashboard" : location.hash = "#/home";
+            }, 1000);
 
+              user.role === "admin" ? location.hash = "#/dashboard" : location.hash = "#/home";
 
-
-        } catch (err) {
-            mensaje.innerHTML = `<div class="alert alert-danger">Error al conectar con el servidor</div>`;
+            gitTML = `<div class="alert alert-danger">Error al conectar con el servidor</div>`;
         }
     });
 }

@@ -20,17 +20,20 @@ export function estaLogueado() {
   // Guardar usuario al hacer login
   export function guardarUsuario(usuario) {
     const convertido = JSON.stringify(usuario)
-    localStorage.setItem("usuario", convertido);
+    localStorage.setItem("user", convertido);
   }
   
   // Obtener usuario actual
   export function obtenerUsuario() {
-    return localStorage.getItem("usuario");
+    return JSON.parse(localStorage.getItem("user"));
   }
   
   // Cerrar sesión
   export function cerrarSesion() {
-    localStorage.removeItem("usuario");
-    location.hash = "#/";
+    localStorage.removeItem("user");
+    setTimeout(() => {
+      location.hash = "#/";
+    }, "2000");
+ 
   }
   

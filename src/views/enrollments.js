@@ -1,3 +1,4 @@
+import { obtenerUsuario } from "../utils/auth.js";
 export async function renderEnrollments(main) {
     main.innerHTML = `
     <main>
@@ -31,4 +32,51 @@ export async function renderEnrollments(main) {
     </main>
 
     `;
-}
+    const url = "http://localhost:3000/users";
+    const url_events = "http://localhost:3000/events";
+    const url_registradas = "http://localhost:3000/registrados";
+    const user = obtenerUsuario();
+    const registrados = buscarEnRegistrados(user.id);
+
+    async function buscarEnRegistrados(id) {
+        const res = await fetch(`${url_registradas}?userId=${id}`);
+        const data = await res.json();
+        if (data.length > 0) {
+            const celda = document.getElementById('celda');
+
+            data.forEach(event => {
+                tin(event);
+
+            });
+
+
+        }
+        else {
+            console.log("nadabro");
+            return;
+        }
+        async function tin(event) {
+            const idEvent = event.eventId;
+            const resEvent = await fetch(`${url_events}?id=${idEvent}`);
+            const dataEvent = await resEvent.json();
+                dataEvent.forEach(evento => {
+                     celda.innerHTML += `
+                    <tr>
+                        <td>${evento.tittle}</td>
+                        <td>${evento.contenido}</td>
+                        <td>${evento.capacidad}</td>
+                        <td>${evento.fecha}</td>
+                        <td>
+                            <img class="imagenEvento" src="${evento.imagen}" alt="Imagen del evento"></img>
+                        </td>
+                    </tr>
+                `
+                });
+            
+           
+
+        }
+
+
+    }
+};
