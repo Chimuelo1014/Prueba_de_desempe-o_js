@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "name": "Admin",
+      "lastName": "events",
+      "email": "admin@eventos.com",
+      "password": "admin123",
+      "role": "admin",
+      "id": "6316"
+    },
+    {
+      "id": "0ff7",
+      "name": "samuel",
+      "lastName": "quintero",
+      "email": "admin@crudzocial.com",
+      "password": "1234",
+      "role": "comun"
+    },
+    {
+      "id": "6c19",
+      "name": "santiago",
+      "lastName": "fomez",
+      "email": "samu1@ajad.com",
+      "password": "123",
+      "role": "comun"
+    },
+    {
+      "id": "1cfc",
+      "name": "samuel",
+      "lastName": "quintero",
+      "email": "adadad@adada.com",
+      "password": "hola",
+      "role": "comun"
+    },
+    {
+      "id": "a84c",
+      "name": "santiago",
+      "lastName": "fomez",
+      "email": "admin@crudzocial.comm",
+      "password": "123",
+      "role": "comun"
+    },
+    {
+      "id": "665b",
+      "name": "adadad",
+      "lastName": "",
+      "email": "adadada@sfsf.com",
+      "password": "hola",
+      "role": "comun"
+    },
+    {
+      "id": "4a0e",
+      "name": "samuel",
+      "lastName": "quintero",
+      "email": "dadadd@adadad",
+      "password": "123",
+      "role": "comun"
+    }
+  ],
+  "events": [
+    {
+      "id": "bb91",
+      "tittle": "tal",
+      "contenido": "estetadadd",
+      "capacidad": "123",
+      "fecha": "2025-07-06",
+      "imagen": "https://media.istockphoto.com/id/1732963074/es/foto/cielo-nocturno-estrellado-en-el-espacio.jpg?s=612x612&w=0&k=20&c=e4BowuietzqEMGIAoh23WfXeX49nLg_flLOTr1P7m1E="
+    }
+  ],
+  "registrados":[{
+    "userId": "4a0e",
+    "eventId": "bb91"
+  }]
+}
